@@ -8,4 +8,5 @@ class AppColors {
   static const Color textMain = Colors.white;
   static const Color textMuted = Color(0xFFC5C6C7);
   static const Color cardBg = Color(0xFF1F2833);
+  static const Color transparent = Colors.transparent;
 }

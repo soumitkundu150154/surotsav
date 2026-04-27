@@ -18,7 +18,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   final ScrollController _scrollController = ScrollController();
-  
+
   final GlobalKey _heroKey = GlobalKey();
   final GlobalKey _eventsKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
@@ -47,15 +47,20 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background.withAlpha(240),
+        backgroundColor: AppColors.transparent,
         elevation: 0,
-        title: Text(
-          'SUROTSAV',
-          style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w900,
-            color: AppColors.primaryNeon,
-            letterSpacing: 2,
-          ),
+        title: Row(
+          children: [
+            Image.asset('assets/favicon.png', height: 50),
+            // Text(
+            //   'SUROTSAV',
+            //   style: GoogleFonts.montserrat(
+            //     fontWeight: FontWeight.w900,
+            //     color: AppColors.primaryNeon,
+            //     letterSpacing: 2,
+            //   ),
+            // ),
+          ],
         ),
         actions: [
           _buildNavButton('Events', _eventsKey),
@@ -78,7 +83,10 @@ class _DashBoardState extends State<DashBoard> {
         controller: _scrollController,
         child: Column(
           children: [
-            HeroSection(key: _heroKey, onRegisterTap: () => _scrollToSection(_registerKey)),
+            HeroSection(
+              key: _heroKey,
+              onRegisterTap: () => _scrollToSection(_registerKey),
+            ),
             const CountdownSection(),
             EventsSection(key: _eventsKey),
             AboutSection(key: _aboutKey),
@@ -94,13 +102,8 @@ class _DashBoardState extends State<DashBoard> {
   Widget _buildNavButton(String title, GlobalKey key) {
     return TextButton(
       onPressed: () => _scrollToSection(key),
-      style: TextButton.styleFrom(
-        foregroundColor: AppColors.textMain,
-      ),
-      child: Text(
-        title,
-        style: GoogleFonts.inter(fontWeight: FontWeight.w600),
-      ),
+      style: TextButton.styleFrom(foregroundColor: AppColors.textMain),
+      child: Text(title, style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
     );
   }
 }
