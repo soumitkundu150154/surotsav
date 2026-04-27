@@ -86,6 +86,7 @@ class _HeroSectionState extends State<HeroSection>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const SizedBox(height: 100),
                         // Glowing orb behind title
                         Transform.translate(
                           offset: Offset(0, _floatAnim.value),
@@ -100,19 +101,20 @@ class _HeroSectionState extends State<HeroSection>
                                   AppColors.secondaryNeon.withAlpha(30),
                                   Colors.transparent,
                                 ],
-                              ),
+                              ), 
                               boxShadow: [
                                 BoxShadow(
                                   color: AppColors.primaryNeon.withAlpha(40),
-                                  blurRadius: 1000,
-                                  spreadRadius: 20,
+                                  blurRadius: 80,
+                                  spreadRadius: 100,
                                 ),
                               ],
                             ),
                             child: Center(
                               child: Image.asset(
                                 'assets/logo_white.png',
-                                height: 80,
+                                height: 1200,
+                                width: 1200,
                               ),
                               // Icon(
                               //   Icons.auto_awesome,
