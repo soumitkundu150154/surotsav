@@ -104,7 +104,7 @@ class _HeroSectionState extends State<HeroSection>
                               boxShadow: [
                                 BoxShadow(
                                   color: AppColors.primaryNeon.withAlpha(40),
-                                  blurRadius: 200,
+                                  blurRadius: 1000,
                                   spreadRadius: 20,
                                 ),
                               ],
