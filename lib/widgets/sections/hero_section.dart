@@ -31,10 +31,7 @@ class _HeroSectionState extends State<HeroSection>
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     );
-    _fadeAnim = CurvedAnimation(
-      parent: _fadeController,
-      curve: Curves.easeOut,
-    );
+    _fadeAnim = CurvedAnimation(parent: _fadeController, curve: Curves.easeOut);
     _slideAnim = Tween<double>(begin: 60, end: 0).animate(
       CurvedAnimation(parent: _fadeController, curve: Curves.easeOutCubic),
     );
@@ -107,17 +104,21 @@ class _HeroSectionState extends State<HeroSection>
                               boxShadow: [
                                 BoxShadow(
                                   color: AppColors.primaryNeon.withAlpha(40),
-                                  blurRadius: 80,
+                                  blurRadius: 200,
                                   spreadRadius: 20,
                                 ),
                               ],
                             ),
                             child: Center(
-                              child: Icon(
-                                Icons.auto_awesome,
-                                size: isMobile ? 48 : 64,
-                                color: AppColors.primaryNeon.withAlpha(200),
+                              child: Image.asset(
+                                'assets/logo_white.png',
+                                height: 80,
                               ),
+                              // Icon(
+                              //   Icons.auto_awesome,
+                              //   size: isMobile ? 48 : 64,
+                              //   color: AppColors.primaryNeon.withAlpha(200),
+                              // ),
                             ),
                           ),
                         ),
@@ -157,7 +158,9 @@ class _HeroSectionState extends State<HeroSection>
                         // Tagline
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 8),
+                            horizontal: 24,
+                            vertical: 8,
+                          ),
                           decoration: BoxDecoration(
                             border: Border(
                               left: BorderSide(
@@ -197,18 +200,16 @@ class _HeroSectionState extends State<HeroSection>
                                   borderRadius: BorderRadius.circular(50),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: AppColors.secondaryNeon
-                                          .withAlpha(
-                                              (_pulseAnim.value * 100).toInt()),
-                                      blurRadius:
-                                          _buttonHovered ? 30 : 15,
-                                      spreadRadius:
-                                          _buttonHovered ? 2 : 0,
+                                      color: AppColors.secondaryNeon.withAlpha(
+                                        (_pulseAnim.value * 100).toInt(),
+                                      ),
+                                      blurRadius: _buttonHovered ? 30 : 15,
+                                      spreadRadius: _buttonHovered ? 2 : 0,
                                     ),
                                     BoxShadow(
-                                      color: AppColors.primaryNeon
-                                          .withAlpha(
-                                              (_pulseAnim.value * 50).toInt()),
+                                      color: AppColors.primaryNeon.withAlpha(
+                                        (_pulseAnim.value * 50).toInt(),
+                                      ),
                                       blurRadius: 25,
                                       spreadRadius: 0,
                                     ),
@@ -216,22 +217,26 @@ class _HeroSectionState extends State<HeroSection>
                                 ),
                                 child: ElevatedButton(
                                   onPressed: widget.onRegisterTap,
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    foregroundColor: AppColors.textMain,
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: isMobile ? 32 : 48,
-                                      vertical: isMobile ? 16 : 22,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    elevation: 0,
-                                  ).copyWith(
-                                    backgroundColor:
-                                        WidgetStateProperty.all(
-                                            Colors.transparent),
-                                  ),
+                                  style:
+                                      ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        foregroundColor: AppColors.textMain,
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: isMobile ? 32 : 48,
+                                          vertical: isMobile ? 16 : 22,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            50,
+                                          ),
+                                        ),
+                                        elevation: 0,
+                                      ).copyWith(
+                                        backgroundColor:
+                                            WidgetStateProperty.all(
+                                              Colors.transparent,
+                                            ),
+                                      ),
                                   child: Ink(
                                     decoration: BoxDecoration(
                                       gradient: const LinearGradient(
@@ -261,14 +266,18 @@ class _HeroSectionState extends State<HeroSection>
                                           const SizedBox(width: 12),
                                           AnimatedContainer(
                                             duration: const Duration(
-                                                milliseconds: 200),
-                                            transform: Matrix4.translationValues(
-                                                _buttonHovered ? 6 : 0,
-                                                0,
-                                                0),
+                                              milliseconds: 200,
+                                            ),
+                                            transform:
+                                                Matrix4.translationValues(
+                                                  _buttonHovered ? 6 : 0,
+                                                  0,
+                                                  0,
+                                                ),
                                             child: const Icon(
-                                                Icons.arrow_forward_rounded,
-                                                size: 20),
+                                              Icons.arrow_forward_rounded,
+                                              size: 20,
+                                            ),
                                           ),
                                         ],
                                       ),
